@@ -1,28 +1,38 @@
 // JS principal do projeto Mega Pack STL
 // Aqui você pode colocar os comportamentos da página.
 
+// Tratamento de erros global
+window.addEventListener("error", (e) => {
+  console.error("Erro capturado:", e.error);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM carregado com sucesso!");
   // Atualiza automaticamente o ano no rodapé
   const yearSpan = document.getElementById("ano-atual");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear().toString();
   }
 
-  // Exemplo de clique no botão principal
+  // Botão principal - rola até a seção de preços
   const btnComprar = document.getElementById("btn-comprar");
   if (btnComprar) {
     btnComprar.addEventListener("click", () => {
-      // TODO: Substituir pela URL real de checkout do seu site
-      alert("Aqui você pode redirecionar para a página de compra ou checkout.");
-      // window.location.href = "URL_DO_CHECKOUT";
+      const secaoPrecos = document.getElementById("secao-precos");
+      if (secaoPrecos) {
+        secaoPrecos.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   }
 
   const btnComprarFinal = document.getElementById("btn-comprar-final");
   if (btnComprarFinal) {
     btnComprarFinal.addEventListener("click", () => {
-      // Mantém o mesmo comportamento do botão principal
-      btnComprar?.click();
+      // Rola até a seção de preços
+      const secaoPrecos = document.getElementById("secao-precos");
+      if (secaoPrecos) {
+        secaoPrecos.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   }
 
@@ -30,9 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnComprarBasico = document.getElementById("btn-comprar-basico");
   if (btnComprarBasico) {
     btnComprarBasico.addEventListener("click", () => {
-      // TODO: Substituir pela URL real de checkout do pacote básico
-      alert("Redirecionando para checkout do Pacote Básico...");
-      // window.location.href = "URL_DO_CHECKOUT_BASICO";
+      window.location.href = "https://malvoo.pay.yampi.com.br/r/N2DCMXP3LP";
     });
   }
 
@@ -40,9 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnComprarPremium = document.getElementById("btn-comprar-premium");
   if (btnComprarPremium) {
     btnComprarPremium.addEventListener("click", () => {
-      // TODO: Substituir pela URL real de checkout do pacote premium
-      alert("Redirecionando para checkout do Pacote Premium...");
-      // window.location.href = "URL_DO_CHECKOUT_PREMIUM";
+      window.location.href = "https://malvoo.pay.yampi.com.br/r/PSSIREOA8O";
     });
   }
 
@@ -50,8 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnComprarGarantia = document.getElementById("btn-comprar-garantia");
   if (btnComprarGarantia) {
     btnComprarGarantia.addEventListener("click", () => {
-      // Mantém o mesmo comportamento do botão principal
-      btnComprar?.click();
+      // Rola até a seção de preços
+      const secaoPrecos = document.getElementById("secao-precos");
+      if (secaoPrecos) {
+        secaoPrecos.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   }
 
@@ -86,5 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Auto-play opcional (descomente se quiser)
     // setInterval(nextSlide, 5000);
   }
+  
+  console.log("JavaScript inicializado com sucesso!");
 });
 
