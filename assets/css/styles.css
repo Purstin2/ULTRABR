@@ -34,6 +34,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Poppins ExtraBold para títulos */
+.section__title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -151,7 +159,6 @@ body {
 }
 
 .section h2 {
-  font-size: 1.6rem;
   margin-bottom: 1.5rem;
   color: #f9fafb;
 }
@@ -530,17 +537,23 @@ body {
 .gallery-carousel__container {
   overflow: hidden;
   border-radius: 1rem;
+  position: relative;
+  scroll-snap-type: x mandatory;
 }
 
 .gallery-carousel__track {
   display: flex;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .gallery-carousel__slide {
   min-width: 100%;
+  width: 100%;
   text-align: center;
   flex-shrink: 0;
+  position: relative;
+  scroll-snap-align: start;
 }
 
 .gallery-carousel__btn {
@@ -581,11 +594,11 @@ body {
 
 .gallery__image {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 16 / 9;
   border-radius: 0.9rem;
   overflow: hidden;
   background: rgba(15, 23, 42, 0.6);
-  margin-bottom: 0.75rem;
+  position: relative;
 }
 
 .gallery__image img {
@@ -596,14 +609,12 @@ body {
 }
 
 .gallery__label {
-  display: inline-block;
+  display: block;
+  margin-top: 0.75rem;
   font-size: 0.9rem;
   color: #f9fafb;
   font-weight: 600;
-  background: rgba(15, 23, 42, 0.85);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(148, 163, 184, 0.3);
+  text-align: center;
 }
 
 /* COMPARE BOXES */
@@ -802,6 +813,106 @@ body {
   font-weight: 700;
 }
 
+/* WHATSAPP TESTIMONIALS CAROUSEL */
+.whatsapp-testimonials {
+  margin: 2rem 0 3rem;
+}
+
+.whatsapp-carousel {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.whatsapp-carousel__container {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.3);
+  padding: 1rem;
+}
+
+.whatsapp-carousel__track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.whatsapp-carousel__slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp-carousel__slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.5rem;
+}
+
+.whatsapp-carousel__slide img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  display: block;
+  object-fit: contain;
+}
+
+.whatsapp-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid rgba(148, 163, 184, 0.4);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #f9fafb;
+  z-index: 10;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.whatsapp-carousel__btn:hover {
+  background: rgba(15, 23, 42, 1);
+  border-color: #f97316;
+}
+
+.whatsapp-carousel__btn--prev {
+  left: 0.5rem;
+}
+
+.whatsapp-carousel__btn--next {
+  right: 0.5rem;
+}
+
+.whatsapp-carousel__btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .whatsapp-carousel__slide {
+    min-width: 50%;
+  }
+  
+  .whatsapp-carousel__slide img {
+    max-width: 500px;
+  }
+}
+
 /* TESTIMONIALS */
 .testimonials-grid {
   display: grid;
@@ -886,6 +997,7 @@ body {
 }
 
 .pricing-card {
+  position: relative;
   background: rgba(15, 23, 42, 0.9);
   border-radius: 1.25rem;
   padding: 2rem 1.5rem;
@@ -899,6 +1011,7 @@ body {
   border-color: #f97316;
   background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(15, 23, 42, 0.95));
   position: relative;
+  padding-top: 3rem;
 }
 
 .pricing-card__name {
@@ -978,10 +1091,12 @@ body {
   margin-top: 1rem;
 }
 
-.badge-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.pricing-card__security-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .badge {
@@ -993,6 +1108,21 @@ body {
   background: rgba(249, 115, 22, 0.2);
   color: #f97316;
   border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+.badge--bestseller {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+.badge--top-right {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  margin-top: 0;
 }
 
 /* GUARANTEE BADGE */
@@ -1170,4 +1300,180 @@ body {
   .footer__links {
     text-align: left;
   }
+
+  .whatsapp-carousel__slide img {
+    max-width: 400px;
+  }
+}
+
+/* MODAL DE UPGRADE */
+.upgrade-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.upgrade-modal.active {
+  display: flex;
+}
+
+.upgrade-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.upgrade-modal__content {
+  position: relative;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.upgrade-modal__header {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.upgrade-modal__header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.upgrade-modal__body {
+  padding: 2rem 1.5rem;
+}
+
+.upgrade-modal__subtitle {
+  margin: 0 0 0.75rem;
+  text-align: center;
+  color: #f97316;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.upgrade-modal__badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #ea580c;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0 auto 1.5rem;
+  display: block;
+  text-align: center;
+  width: fit-content;
+}
+
+.upgrade-modal__pricing {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.upgrade-modal__old-price {
+  display: block;
+  color: #9ca3af;
+  text-decoration: line-through;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-modal__label {
+  margin: 0.5rem 0;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.upgrade-modal__new-price {
+  margin: 0.5rem 0;
+  color: #f97316;
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+}
+
+.upgrade-modal__savings {
+  margin: 0.5rem 0 0;
+  color: #22c55e;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.upgrade-modal__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.upgrade-modal__benefits li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.upgrade-modal__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 50%;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.upgrade-modal__cta {
+  margin-bottom: 1rem;
+}
+
+.upgrade-modal__skip {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.upgrade-modal__skip:hover {
+  color: #6b7280;
+  text-decoration: underline;
 }
