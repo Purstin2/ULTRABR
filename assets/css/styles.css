@@ -601,7 +601,9 @@ body {
 
 .gallery__image {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
+  max-width: 600px;
+  margin: 0 auto;
   border-radius: 0.9rem;
   overflow: hidden;
   background: rgba(15, 23, 42, 0.6);
