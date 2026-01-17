@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnUpgradeNo) {
     btnUpgradeNo.addEventListener("click", () => {
       upgradeModal.classList.remove("active");
-      window.location.href = "https://malvoo.pay.yampi.com.br/r/N2DCMXP3LP";
+      window.location.href = "https://www.ggcheckout.com/checkout/v2/gx1Lkf8Iorj6dCzd2eXY";
     });
   }
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnComprarPremium = document.getElementById("btn-comprar-premium");
   if (btnComprarPremium) {
     btnComprarPremium.addEventListener("click", () => {
-      window.location.href = "https://malvoo.pay.yampi.com.br/r/PSSIREOA8O";
+      window.location.href = "https://www.ggcheckout.com/checkout/v2/JHjpXo2GxPODEjl0R9Ow";
     });
   }
 
