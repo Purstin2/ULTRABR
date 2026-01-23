@@ -209,6 +209,61 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTimer();
   }
   
-  console.log("JavaScript inicializado com sucesso!");
+  // ========== PROTEÇÕES ANTI-INSPEÇÃO ==========
+  const redirectAntiInspecionar = () => {
+    window.location.href = "https://www.google.com/";
+  };
+
+  // Bloqueia clique com botão direito
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+
+  // Bloqueia algumas teclas de atalho comuns (F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+P)
+  document.addEventListener("keydown", (e) => {
+    const key = e.key?.toLowerCase();
+
+    // F12
+    if (e.key === "F12") {
+      e.preventDefault();
+      redirectAntiInspecionar();
+      return;
+    }
+
+    // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) {
+      e.preventDefault();
+      redirectAntiInspecionar();
+      return;
+    }
+
+    // Ctrl+U (ver código-fonte), Ctrl+S (salvar), Ctrl+P (imprimir)
+    if (e.ctrlKey && ["u", "s", "p"].includes(key)) {
+      e.preventDefault();
+      redirectAntiInspecionar();
+      return;
+    }
+  });
+
+  // Bloqueia evento de cópia
+  document.addEventListener("copy", (e) => {
+    e.preventDefault();
+    e.clipboardData?.setData("text/plain", "");
+  });
+
+  // Tentativa simples de detectar DevTools aberto por diferença de tamanho da janela
+  setInterval(() => {
+    const threshold = 160;
+    if (
+      window.outerWidth - window.innerWidth > threshold ||
+      window.outerHeight - window.innerHeight > threshold
+    ) {
+      redirectAntiInspecionar();
+    }
+  }, 1000);
+
+  console.log("JavaScript inicializado com sucesso! (proteções ativas)");
 });
+
+
 
