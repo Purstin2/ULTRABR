@@ -6,8 +6,101 @@ window.addEventListener("error", (e) => {
   console.error("Erro capturado:", e.error);
 });
 
+// Função para capturar UTMs e adicionar à URL de destino
+function getUtmParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmParams = new URLSearchParams();
+
+  // Lista de parâmetros UTM para capturar
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id'];
+
+  // 1ª PRIORIDADE: UTMs da URL atual
+  utmKeys.forEach(key => {
+    if (urlParams.has(key)) {
+      utmParams.set(key, urlParams.get(key));
+    }
+  });
+
+  // 2ª PRIORIDADE: Se não encontrou na URL, pega do sessionStorage (capturadas no carregamento)
+  if (utmParams.toString() === '') {
+    try {
+      const capturedUtms = sessionStorage.getItem('captured_utms');
+      if (capturedUtms) {
+        const parsed = JSON.parse(capturedUtms);
+        utmKeys.forEach(key => {
+          if (parsed[key]) {
+            utmParams.set(key, parsed[key]);
+          }
+        });
+      }
+    } catch (e) {
+      console.log('Erro ao ler UTMs do sessionStorage:', e);
+    }
+  }
+
+  // 3ª PRIORIDADE: Tenta pegar do localStorage (onde Utmify pode salvar)
+  if (utmParams.toString() === '') {
+    try {
+      const utmifyData = localStorage.getItem('utms');
+      if (utmifyData) {
+        const parsed = JSON.parse(utmifyData);
+        utmKeys.forEach(key => {
+          if (parsed[key]) {
+            utmParams.set(key, parsed[key]);
+          }
+        });
+      }
+    } catch (e) {
+      console.log('Erro ao ler UTMs do localStorage:', e);
+    }
+  }
+
+  return utmParams.toString();
+}
+
+// Função para redirecionar com UTMs
+function redirectWithUtm(url) {
+  const utmString = getUtmParams();
+  const separator = url.includes('?') ? '&' : '?';
+  const finalUrl = utmString ? `${url}${separator}${utmString}` : url;
+  console.log('Redirecionando para:', finalUrl);
+  window.location.href = finalUrl;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM carregado com sucesso!");
+
+  // Log das UTMs detectadas (DEBUG)
+  const utms = getUtmParams();
+  console.log('========== DEBUG UTMs ==========');
+  console.log('URL atual:', window.location.href);
+  console.log('Parâmetros UTM que serão enviados:', utms || 'NENHUM');
+
+  // Verificar sessionStorage (captura imediata)
+  try {
+    const capturedUtms = sessionStorage.getItem('captured_utms');
+    console.log('UTMs capturadas (sessionStorage):', capturedUtms || 'NENHUM');
+  } catch (e) {
+    console.log('Erro ao ler sessionStorage:', e);
+  }
+
+  // Verificar localStorage do Utmify
+  try {
+    const utmifyData = localStorage.getItem('utms');
+    console.log('Dados Utmify (localStorage):', utmifyData || 'NENHUM');
+  } catch (e) {
+    console.log('Erro ao ler localStorage:', e);
+  }
+
+  console.log('================================');
+
+  // Alerta visual se UTMs foram detectadas (apenas para testes - remova depois)
+  if (utms) {
+    console.log('%c✓ UTMs DETECTADAS E SERÃO PROPAGADAS!', 'color: green; font-size: 16px; font-weight: bold;');
+  } else {
+    console.log('%c⚠ NENHUMA UTM DETECTADA - Verifique se está acessando com ?utm_source=...', 'color: orange; font-size: 14px;');
+  }
+
   // Atualiza automaticamente o ano no rodapé
   const yearSpan = document.getElementById("ano-atual");
   if (yearSpan) {
@@ -50,13 +143,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Botão "Sim, quero o desconto" - Link já está no HTML, não precisa de evento
+  // Botão "Sim, quero o desconto" - Interceptar clique para adicionar UTMs
+  if (btnUpgradeYes) {
+    btnUpgradeYes.addEventListener("click", (e) => {
+      e.preventDefault();
+      redirectWithUtm("https://www.ggcheckout.com/checkout/v2/JHjpXo2GxPODEjl0R9Ow");
+    });
+  }
 
   // Botão "Não, obrigado" - Redireciona para Básico e fecha modal
   if (btnUpgradeNo) {
     btnUpgradeNo.addEventListener("click", () => {
       upgradeModal.classList.remove("active");
-      window.location.href = "https://www.ggcheckout.com/checkout/v2/gx1Lkf8Iorj6dCzd2eXY";
+      redirectWithUtm("https://www.ggcheckout.com/checkout/v2/gx1Lkf8Iorj6dCzd2eXY");
     });
   }
 
@@ -74,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnComprarPremium = document.getElementById("btn-comprar-premium");
   if (btnComprarPremium) {
     btnComprarPremium.addEventListener("click", () => {
-      window.location.href = "https://www.ggcheckout.com/checkout/v2/DvvETZRccvxhUrKMbNAJ";
+      redirectWithUtm("https://www.ggcheckout.com/checkout/v2/DvvETZRccvxhUrKMbNAJ");
     });
   }
 
@@ -261,6 +360,28 @@ document.addEventListener("DOMContentLoaded", () => {
       redirectAntiInspecionar();
     }
   }, 1000);
+
+  // Atualizar TODOS os links para checkout automaticamente com UTMs
+  function updateAllCheckoutLinks() {
+    const checkoutLinks = document.querySelectorAll('a[href*="ggcheckout.com"]');
+    checkoutLinks.forEach(link => {
+      // Se ainda não tem evento click customizado
+      if (!link.dataset.utmUpdated) {
+        link.dataset.utmUpdated = "true";
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const originalUrl = link.getAttribute("href");
+          redirectWithUtm(originalUrl);
+        });
+      }
+    });
+  }
+
+  // Atualiza os links quando a página carrega
+  updateAllCheckoutLinks();
+
+  // Atualiza novamente após 1 segundo (caso algum elemento seja carregado dinamicamente)
+  setTimeout(updateAllCheckoutLinks, 1000);
 
   console.log("JavaScript inicializado com sucesso! (proteções ativas)");
 });

@@ -20,6 +20,23 @@
     <link rel="dns-prefetch" href="https://api.vturb.com.br">
     <!-- CSS principal do projeto -->
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Script para capturar UTMs IMEDIATAMENTE -->
+    <script>
+      // Captura UTMs da URL e salva no sessionStorage
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const utmData = {};
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id'].forEach(key => {
+          if (params.has(key)) {
+            utmData[key] = params.get(key);
+          }
+        });
+        if (Object.keys(utmData).length > 0) {
+          sessionStorage.setItem('captured_utms', JSON.stringify(utmData));
+          console.log('UTMs capturadas e salvas:', utmData);
+        }
+      })();
+    </script>
     <!-- Script Utmify -->
     <script
       src="https://cdn.utmify.com.br/scripts/utms/latest.js"
