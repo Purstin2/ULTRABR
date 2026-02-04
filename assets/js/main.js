@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnComprarPremium = document.getElementById("btn-comprar-premium");
   if (btnComprarPremium) {
     btnComprarPremium.addEventListener("click", () => {
-      redirectWithUtm("https://www.ggcheckout.com/checkout/v2/DvvETZRccvxhUrKMbNAJ");
+      redirectWithUtm("https://seguro.blorati.com/checkout/206784115:1");
     });
   }
 
