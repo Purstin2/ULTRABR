@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnUpgradeYes) {
     btnUpgradeYes.addEventListener("click", (e) => {
       e.preventDefault();
-      redirectWithUtm("https://seguro.blorati.com/checkout/206784115:1");
+      redirectWithUtm("https://www.ggcheckout.com/checkout/v2/JHjpXo2GxPODEjl0R9Ow");
     });
   }
 
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnUpgradeNo) {
     btnUpgradeNo.addEventListener("click", () => {
       upgradeModal.classList.remove("active");
-      redirectWithUtm("https://seguro.blorati.com/checkout/206784115:1");
+      redirectWithUtm("https://www.ggcheckout.com/checkout/v2/gx1Lkf8Iorj6dCzd2eXY");
     });
   }
 
