@@ -102,6 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Evita processar o mesmo link duas vezes
       if (link.dataset.utmUpdated) return;
 
+      // Pula o botão "NÃO" do modal pois ele precisa de lógica especial (fechar modal)
+      if (link.id === 'btn-upgrade-no') return;
+
       // Adiciona evento de clique
       link.dataset.utmUpdated = "true";
       link.addEventListener("click", (e) => {
@@ -136,23 +139,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Botão Pacote Premium (Agora pega o link do HTML automaticamente)
-  const btnComprarPremium = document.getElementById("btn-comprar-premium");
-  if (btnComprarPremium) {
-    btnComprarPremium.addEventListener("click", function(e) {
-      e.preventDefault();
-      // Pega o link que você colocou no botão lá no editor visual
-      const urlAlvo = this.getAttribute("href") || "https://seguro.blorati.com/checkout/v2/DvvETZRccvxhUrKMbNAJ"; 
-      redirectWithUtm(urlAlvo);
-    });
-  }
+  // Botão Pacote Premium (Processado automaticamente por updateAllCheckoutLinks)
+  // Não precisa mais de listener específico - o link já tem href no HTML
 
-  // Modal de Upgrade (Lógica Complexa)
+  // Modal de Upgrade (Lógica de abertura mantida)
   const btnComprarBasico = document.getElementById("btn-comprar-basico");
   const upgradeModal = document.getElementById("upgrade-modal");
-  const btnUpgradeYes = document.getElementById("btn-upgrade-yes");
-  const btnUpgradeNo = document.getElementById("btn-upgrade-no");
 
+  // Abre o modal quando clicar em "Pacote Básico"
   if (btnComprarBasico && upgradeModal) {
     btnComprarBasico.addEventListener("click", (e) => {
       e.preventDefault();
@@ -160,25 +154,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (btnUpgradeYes) {
-    btnUpgradeYes.addEventListener("click", (e) => {
-      e.preventDefault();
-      // Link do botão SIM (Pega do HTML ou usa o fixo se vazio)
-      const urlSim = btnUpgradeYes.getAttribute("href") || "https://www.ggcheckout.com/checkout/v2/JHjpXo2GxPODEjl0R9Ow";
-      redirectWithUtm(urlSim);
+  // Botão "NÃO" fecha o modal e aguarda antes de redirecionar
+  const btnUpgradeNo = document.getElementById("btn-upgrade-no");
+  if (btnUpgradeNo && upgradeModal) {
+    btnUpgradeNo.addEventListener("click", (e) => {
+      e.preventDefault(); // Previne navegação imediata
+      upgradeModal.classList.remove("active");
+      // Aguarda o modal fechar antes de redirecionar
+      setTimeout(() => {
+        const url = btnUpgradeNo.getAttribute("href");
+        if (url) redirectWithUtm(url);
+      }, 200);
     });
   }
 
-  if (btnUpgradeNo) {
-    btnUpgradeNo.addEventListener("click", (e) => {
-      e.preventDefault(); // Previne navegação imediata se for link
-      upgradeModal.classList.remove("active");
-      // Link do botão NÃO (Pega do HTML ou usa o fixo se vazio)
-      const urlNao = btnUpgradeNo.getAttribute("href") || "https://www.ggcheckout.com/checkout/v2/gx1Lkf8Iorj6dCzd2eXY";
-      // Pequeno delay para a modal fechar visualmente antes de ir
-      setTimeout(() => redirectWithUtm(urlNao), 200);
-    });
-  }
+  // Botão "SIM" é processado automaticamente por updateAllCheckoutLinks()
+  // Não precisa de listener específico
 
   // Fechar modal no overlay
   if (upgradeModal) {
