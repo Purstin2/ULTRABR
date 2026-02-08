@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnComprarPremium.addEventListener("click", function(e) {
       e.preventDefault();
       // Pega o link que você colocou no botão lá no editor visual
-      const urlAlvo = this.getAttribute("href") || "https://www.ggcheckout.com/checkout/v2/b8beEndhcibMp72AJXCD"; 
+      const urlAlvo = this.getAttribute("href") || "https://seguro.blorati.com/checkout/v2/DvvETZRccvxhUrKMbNAJ"; 
       redirectWithUtm(urlAlvo);
     });
   }
