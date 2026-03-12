@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnComprar = document.getElementById("btn-comprar");
   if (btnComprar) {
     btnComprar.addEventListener("click", () => {
-      redirectWithUtm("https://seguro.ultrapack3d.com/checkout/v2/DvvETZRccvxhUrKMbNAJ");
+      redirectWithUtm("https://seguro.ultrapack3d.com/checkout/v5/DvvETZRccvxhUrKMbNAJ");
     });
   }
 
