@@ -117,6 +117,20 @@ body {
   align-items: center;
 }
 
+.hero__price-hint {
+  font-size: 1rem;
+  color: #fbbf24;
+  font-weight: 600;
+  text-align: center;
+}
+
+.hero__mini-guarantee {
+  font-size: 0.82rem;
+  color: #86efac;
+  text-align: center;
+  opacity: 0.9;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -859,6 +873,44 @@ body {
   font-size: 1.05rem;
   color: #fbbf24;
   font-weight: 700;
+}
+
+.bonus-cta-anchor {
+  margin-top: 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bonus-cta-anchor__text {
+  font-size: 1.1rem;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.bonus-cta-anchor__text strong {
+  color: #fbbf24;
+  font-size: 1.3rem;
+}
+
+.bonus-cta-anchor .btn-primary {
+  max-width: 480px;
+  width: 100%;
+}
+
+.bonus-cta-anchor__guarantee {
+  font-size: 0.85rem;
+  color: #86efac;
+  margin: 0;
+}
+
+.pricing-card__guarantee {
+  font-size: 0.82rem;
+  color: #86efac;
+  text-align: center;
+  margin: 0.5rem 0 0;
 }
 
 /* WHATSAPP TESTIMONIALS CAROUSEL */
