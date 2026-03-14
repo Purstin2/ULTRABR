@@ -130,11 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. BOTÕES ESPECÍFICOS (Lógica preservada mas melhorada)
   // ==============================================================
 
-  // Botão Hero — vai direto ao checkout
+  // Botão Hero — rola para a seção de preços
   const btnComprar = document.getElementById("btn-comprar");
   if (btnComprar) {
     btnComprar.addEventListener("click", () => {
-      redirectWithUtm("https://seguro.ultrapack3d.com/checkout/v5/DvvETZRccvxhUrKMbNAJ");
+      const secaoPrecos = document.getElementById("secao-precos");
+      if (secaoPrecos) secaoPrecos.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
 
