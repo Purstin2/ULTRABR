@@ -1,0 +1,598 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ultra Pack STL 2026  Projeto</title>
+    <!-- Google Fonts - Poppiuyns -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet" />
+    <!-- Otimização de velocidade VTurb -->
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/a2bc65e2-b315-4aea-b664-3bbdc0b1a084/players/699a9c7dfd027ea26a30915c/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/a2bc65e2-b315-4aea-b664-3bbdc0b1a084/players/699a9c59055018086ea72129/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/a2bc65e2-b315-4aea-b664-3bbdc0b1a084/699a9c786aee4c1df83577b5/main.m3u8" as="fetch">
+    <link rel="preload" href="https://cdn.converteai.net/a2bc65e2-b315-4aea-b664-3bbdc0b1a084/699a9c517d7b375b25ef73ff/main.m3u8" as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+    <!-- CSS principal do projeto -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Script para capturar UTMs IMEDIATAMENTE -->
+    <script>
+      // Captura UTMs da URL e salva no sessionStorage
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const utmData = {};
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id'].forEach(key => {
+          if (params.has(key)) {
+            utmData[key] = params.get(key);
+          }
+        });
+        if (Object.keys(utmData).length > 0) {
+          sessionStorage.setItem('captured_utms', JSON.stringify(utmData));
+          console.log('UTMs capturadas e salvas:', utmData);
+        }
+      })();
+    </script>
+    <!-- Script Utmify -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<script>
+  window.pixelId = "6998e653178e4fdf9fec5724";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <!-- Fallback caso CSS não carregue -->
+    <style>
+      body { 
+        margin: 0; 
+        padding: 0; 
+        min-height: 100vh;
+        background: #000;
+        color: #fff;
+      }
+      .promo-bar {
+        background: #c00000;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- BARRA PROMOCIONAL (NATAL / DESCONTO) -->
+    <div class="promo-bar">
+      <p class="promo-text">
+        <span class="promo-sub">⚡ Oferta por tempo limitado! Expira em: <span id="countdown-timer">13:22</span></span>
+      </p>
+    </div>
+
+    <!-- HERO PRINCIPAL COM VSL -->
+    <header class="hero hero--dark">
+      <div class="container hero__container">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            A <span class="hero__badge">MAIOR BIBLIOTECA</span> DE MODELOS 3D<br>
+            +100 MIL ARQUIVOS PRONTOS PARA IMPRIMIR
+          </h1>
+          <p class="hero__subtitle">
+            Acesse agora <strong>TODOS</strong> os modelos organizados por categoria e prontos para imprimir!
+          </p>
+        </div>
+
+        <div class="hero__media">
+          <div class="video-card video-card--primary">
+            <div style="position: relative; width: 100%; max-width: 400px; margin: 0 auto;">
+              <vturb-smartplayer id="vid-699a9c7dfd027ea26a30915c" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+              <script type="text/javascript">
+                var s=document.createElement("script");
+                s.src="https://scripts.converteai.net/a2bc65e2-b315-4aea-b664-3bbdc0b1a084/players/699a9c7dfd027ea26a30915c/v4/player.js";
+                s.async=!0;
+                document.head.appendChild(s);
+              </script>
+            </div>
+
+            <ul class="hero-benefits">
+              <li>Não precisa criar modelos do zero — basta baixar e imprimir</li>
+              <li>Arquivos STL organizados e prontos para uso</li>
+              <li>Biblioteca com milhares de modelos populares da comunidade maker</li>
+              <li>Acesso imediato após a compra</li>
+            </ul>
+          </div>
+
+          <div class="hero__cta">
+            <button class="btn-primary btn-primary--full" id="btn-comprar">
+              <strong>QUERO ACESSO VITALÍCIO!</strong>
+            </button>
+
+            <div class="rating">
+              <div class="rating__stars" aria-hidden="true">
+                ★★★★★
+              </div>
+              <span class="rating__text">4,98 (5286 AVALIAÇÕES)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- O QUE É ESSA BIBLIOTECA -->
+      <section class="section section--dark">
+        <div class="container section__container section__container--center">
+          <h2 class="section__title">O que é essa biblioteca?</h2>
+          <p class="section__subtitle">
+            Ao adquirir o acesso você recebe entrada imediata para uma biblioteca digital com mais de <strong>100.000 arquivos STL prontos para download.</strong>
+          </p>
+          <p class="section__subtitle">
+            Todos os modelos estão organizados dentro de uma área de membros para facilitar a navegação e o download.
+          </p>
+          <p class="section__subtitle">
+            Você pode baixar quantos modelos quiser e usar na sua impressora 3D.
+          </p>
+          <ul class="check-list check-list--hero">
+            <li>mais de 100 mil arquivos STL</li>
+            <li>modelos organizados por categorias</li>
+            <li>downloads ilimitados</li>
+            <li>acesso vitalício</li>
+            <li>acesso imediato após pagamento</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SEÇÃO ÁREA DE MEMBROS / DEMONSTRAÇÃO -->
+      <section class="section section--light">
+        <div class="container section__container section__container--center">
+          <h2 class="section__title" style="margin-bottom: 1rem;">ESTE PACK FOI FEITO PARA FACILITAR A SUA VIDA...</h2>
+          <p style="text-align:center; font-size: 1.1rem; margin-bottom: 1rem;">Veja como funciona a biblioteca por dentro</p>
+          <div class="video-card video-card--secondary" style="margin-top: 0;">
+            <div class="video-card__frame video-card__frame--wide" style="padding-top: 0; position: relative; height: auto;">
+              <vturb-smartplayer id="vid-699a9c59055018086ea72129" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+              <script type="text/javascript">
+                var s=document.createElement("script");
+                s.src="https://scripts.converteai.net/a2bc65e2-b315-4aea-b664-3bbdc0b1a084/players/699a9c59055018086ea72129/v4/player.js";
+                s.async=!0;
+                document.head.appendChild(s);
+              </script>
+            </div>
+          </div>
+
+          <ul class="check-list check-list--hero">
+            <li>Chega de perder horas procurando modelos 3D e acabar com arquivos ruins.</li>
+            <li>Pare de gastar caro comprando modelos individuais que nem sempre valem o investimento.</li>
+            <li>Diga adeus à frustração de ter sua impressora parada por falta de variedade.</li>
+            <li>Comece a lucrar de verdade com milhares de modelos prontos para imprimir e vender.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PARA QUEM É ESSA BIBLIOTECA -->
+      <section class="section section--light">
+        <div class="container section__container section__container--center">
+          <h2 class="section__title">Para quem essa biblioteca é ideal</h2>
+          <ul class="check-list check-list--hero">
+            <li>donos de impressora 3D</li>
+            <li>makers e criadores</li>
+            <li>hobbyistas de impressão 3D</li>
+            <li>pessoas que gostam de imprimir miniaturas e colecionáveis</li>
+            <li>criadores de peças personalizadas</li>
+            <li>quem quer ter acesso a milhares de modelos prontos</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- GALERIA DE MODELOS -->
+      <section class="section section--dark">
+        <div class="container">
+          <h2 class="section__title section__title--center">VEJA OS MODELOS QUE VOCÊ IRÁ RECEBER:</h2>
+
+          <p class="section__subtitle" style="text-align:center; margin-bottom: 0.5rem;">A biblioteca possui milhares de modelos organizados em diversas categorias.</p>
+          <p class="section__subtitle" style="text-align:center; margin-bottom: 1.5rem;">Exemplos de modelos disponíveis: miniatura &bull; personagens &bull; chaveiros &bull; veículos &bull; utensílios domésticos &bull; máscaras &bull; objetos decorativos &bull; modelos articulados</p>
+
+          <div class="gallery-carousel">
+            <button class="gallery-carousel__btn gallery-carousel__btn--prev" aria-label="Anterior">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="gallery-carousel__container">
+              <div class="gallery-carousel__track">
+                <div class="gallery-carousel__slide">
+                  <div class="gallery__image">
+                    <img src="assets/img/animes.JPG" alt="Coleção Animes" loading="lazy" />
+                  </div>
+                  <span class="gallery__label">Animes</span>
+                </div>
+                <div class="gallery-carousel__slide">
+                  <div class="gallery__image">
+                    <img src="assets/img/desenhos.JPG" alt="Coleção Desenhos" loading="lazy" />
+                  </div>
+                  <span class="gallery__label">Desenhos</span>
+                </div>
+                <div class="gallery-carousel__slide">
+                  <div class="gallery__image">
+                    <img src="assets/img/religiao.JPG" alt="Coleção Religião" loading="lazy" />
+                  </div>
+                  <span class="gallery__label">Religião</span>
+                </div>
+                <div class="gallery-carousel__slide">
+                  <div class="gallery__image">
+                    <img src="assets/img/mitologia.JPG" alt="Coleção Mitologia" loading="lazy" />
+                  </div>
+                  <span class="gallery__label">Mitologia</span>
+                </div>
+                <div class="gallery-carousel__slide">
+                  <div class="gallery__image">
+                    <img src="assets/img/decoracao.JPG" alt="Coleção Decoração" loading="lazy" />
+                  </div>
+                  <span class="gallery__label">Decoração</span>
+                </div>
+                <div class="gallery-carousel__slide">
+                  <div class="gallery__image">
+                    <img src="assets/img/mais.JPG" alt="E muito mais" loading="lazy" />
+                  </div>
+                  <span class="gallery__label">E muito mais</span>
+                </div>
+              </div>
+            </div>
+            <button class="gallery-carousel__btn gallery-carousel__btn--next" aria-label="Próximo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- DEPOIMENTOS -->
+      <section class="section section--light">
+        <div class="container">
+          <h2 class="section__title section__title--center">VEJA O QUE OS NOSSOS CLIENTES ESTÃO DIZENDO:</h2>
+
+          <!-- Carrossel de Depoimentos WhatsApp -->
+          <div class="whatsapp-testimonials">
+            <div class="whatsapp-carousel">
+              <button class="whatsapp-carousel__btn whatsapp-carousel__btn--prev" aria-label="Anterior">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="whatsapp-carousel__container">
+                <div class="whatsapp-carousel__track">
+                  <div class="whatsapp-carousel__slide">
+                    <img src="https://i.postimg.cc/L5ZZjN3C/dep-mega-pack-01.webp" alt="Depoimento WhatsApp 1" loading="lazy" />
+                  </div>
+                  <div class="whatsapp-carousel__slide">
+                    <img src="https://i.postimg.cc/4dvkjzMk/Imagem-do-Whats-App-de-2025-11-19-a(s)-03-29-56-16b1fb6a.webp" alt="Depoimento WhatsApp 2" loading="lazy" />
+                  </div>
+                  <div class="whatsapp-carousel__slide">
+                    <img src="https://i.postimg.cc/NFrrRpkP/dep-mega-pack-02-1.webp" alt="Depoimento WhatsApp 3" loading="lazy" />
+                  </div>
+                  <div class="whatsapp-carousel__slide">
+                    <img src="https://i.postimg.cc/rmGX7Sby/Imagem-do-Whats-App-de-2025-11-19-a(s)-03-29-56-b9eb7d9a.webp" alt="Depoimento WhatsApp 4" loading="lazy" />
+                  </div>
+                  <div class="whatsapp-carousel__slide">
+                    <img src="https://i.postimg.cc/cC88fXBk/dep-mega-pack-03.webp" alt="Depoimento WhatsApp 5" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+              <button class="whatsapp-carousel__btn whatsapp-carousel__btn--next" aria-label="Próximo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="testimonials-grid">
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__text">
+                "Tenho uma Ender 3 basicona e fiquei com medo dos modelos não rodarem. Mas já fiz mais de 40 impressões
+                aqui e tudo saindo perfeitamente. Os arquivos são super compatíveis."
+              </p>
+              <div class="testimonial-card__author">
+                <span class="testimonial-card__avatar">
+                  <img src="assets/img/avatar-mulher.JPG" alt="Mariana S." loading="lazy" />
+                </span>
+                <div>
+                  <strong>Mariana S.</strong>
+                  <span class="testimonial-card__verified">Cliente Verificado</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__text">
+                "Tinha duvida se ia conseguir vender mas comecei postando no marketplace, primeira semana nada. Ajustei
+                fotos e preço, na segunda semana começou a vender. Hoje, 1 mês depois, já tenho cliente fixo pedindo
+                toda semana. Ter 100 mil opções ajuda demais pra testar vários nichos."
+              </p>
+              <div class="testimonial-card__author">
+                <span class="testimonial-card__avatar">
+                  <img src="assets/img/avatar-homem-1.JPG" alt="Adriano P." loading="lazy" />
+                </span>
+                <div>
+                  <strong>Adriano P.</strong>
+                  <span class="testimonial-card__verified">Cliente Verificado</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars">★★★★★</div>
+              <p class="testimonial-card__text">
+                "Achei que ia ser muita quantidade para pouca qualidade, mas testei uns 20 modelos aleatórios e todos
+                imprimiram perfeito. Zero arquivo corrompido, zero erro. Tem coisa muito bem feita no pack. Tô usando
+                faz 3 semanas e ainda nem explorei 5% do que tem lá dentro."
+              </p>
+              <div class="testimonial-card__author">
+                <span class="testimonial-card__avatar">
+                  <img src="assets/img/avatar-homem-2.JPG" alt="João D." loading="lazy" />
+                </span>
+                <div>
+                  <strong>João D.</strong>
+                  <span class="testimonial-card__verified">Cliente Verificado</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMO FUNCIONA O ACESSO -->
+      <section class="section section--light">
+        <div class="container section__container section__container--center">
+          <h2 class="section__title">Como funciona o acesso</h2>
+          <ul class="check-list check-list--hero">
+            <li>1️⃣ Faça a compra do acesso</li>
+            <li>2️⃣ Receba seu login por e-mail</li>
+            <li>3️⃣ Acesse a área de membros</li>
+            <li>4️⃣ Baixe qualquer modelo da biblioteca</li>
+          </ul>
+          <p class="section__subtitle">Simples assim. Após a compra você já pode começar a explorar toda a biblioteca.</p>
+        </div>
+      </section>
+
+      <!-- ESCOLHA DE PACOTE -->
+      <section class="section section--dark" id="secao-precos">
+        <div class="container">
+          <h2 class="section__title section__title--center">ESCOLHA SEU PACOTE</h2>
+
+          <div class="pricing-grid">
+            <!-- PACOTE BÁSICO -->
+            <article class="pricing-card">
+              <h3 class="pricing-card__name">PACOTE BÁSICO</h3>
+              <ul class="pricing-card__features">
+                <li>Pack com +100.000 arquivos STL</li>
+                <li>Acesso vitalício</li>
+              </ul>
+              <div class="pricing-card__price">
+                <span class="pricing-card__old-price">De R$ 189,90</span>
+                <span class="pricing-card__label">por apenas:</span>
+                <span class="pricing-card__value">R$9,90</span>
+              </div>
+              <a href="http://pagamento.ultrapack3d.com//?checkout=mega-biblioteca-premium-100k-nedv" class="btn-primary btn-primary--full" id="btn-comprar-basico">
+                <strong>ESCOLHER O BÁSICO</strong>
+              </a>
+              <div class="pricing-card__badges">
+                <img src="https://i.ibb.co/ycFWVSHs/Compra-Segura.png" alt="Compra Segura" style="max-width: 50%; height: auto;" />
+              </div>
+            </article>
+
+            <!-- PACOTE PREMIUM -->
+            <article class="pricing-card pricing-card--premium">
+              <span class="badge badge--bestseller badge--top-right">MAIS VENDIDO</span>
+              <h3 class="pricing-card__name">PACOTE PREMIUM</h3>
+              <div class="pricing-card__rating">
+                <span class="rating__stars">★★★★★</span>
+                <span class="rating__text">4,98 (5286 AVALIAÇÕES)</span>
+              </div>
+              <ul class="pricing-card__features">
+                <li>Pack com +100.000 arquivos STL</li>
+                <li>Acesso vitalício</li>
+                <li>Downloads ilimitados</li>
+                <li>Área de membros organizada por categorias</li>
+                <li>Acesso imediato após o pagamento</li>
+              </ul>
+              <div class="pricing-card__price">
+                <span class="pricing-card__old-price">De R$ 489,90</span>
+                <span class="pricing-card__label">por apenas:</span>
+                <span class="pricing-card__value">R$34,90</span>
+              </div>
+              <a href="http://pagamento.ultrapack3d.com//?checkout=mega-biblioteca-premium-100k-3d-iyd2" class="btn-primary btn-primary--full" id="btn-comprar-premium">
+                <strong>QUERO ESSA SUPER OFERTA!</strong>
+              </a>
+              <div class="pricing-card__badges">
+                <img src="https://i.ibb.co/ycFWVSHs/Compra-Segura.png" alt="Compra Segura" style="max-width: 100%; height: auto;" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ / PERGUNTAS FREQUENTES -->
+      <section class="section section--dark">
+        <div class="container">
+          <h2 class="section__title section__title--center">PERGUNTAS FREQUENTES</h2>
+
+          <div class="faq">
+            <details class="faq__item">
+              <summary>Os arquivos funcionam na minha impressora 3D?</summary>
+              <p>
+                Sim. Os arquivos são no formato STL, compatível com praticamente todas as impressoras 3D.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Quantos modelos posso baixar?</summary>
+              <p>
+                Você pode baixar quantos modelos quiser dentro da biblioteca.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>O acesso é vitalício?</summary>
+              <p>
+                Sim. O acesso é liberado após a compra e não possui mensalidade.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Quando recebo acesso?</summary>
+              <p>
+                O acesso é liberado automaticamente após a confirmação do pagamento.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Como eu acesso os arquivos depois de pagar?</summary>
+              <p>
+                O acesso é <strong>100% online e imediato</strong>. Assim que o pagamento é confirmado, você recebe os
+                dados de acesso ao ambiente onde os arquivos estão organizados por categorias.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Os arquivos estão organizados?</summary>
+              <p>
+                Sim! Todos os arquivos estão organizados por pastas e categorias (Animes, Desenhos, Decoração, etc.),
+                facilitando a busca e o download do que você precisa.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Preciso saber modelar em 3D pra usar o pack?</summary>
+              <p>
+                Não! O pack atende tanto iniciantes quanto quem já imprime há mais tempo. Você pode começar pelos
+                modelos mais simples e ir avançando conforme ganha experiência.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Posso vender as impressões dos modelos?</summary>
+              <p>
+                Sim! A ideia do Ultra Pack STL 2026 é justamente permitir que você use os modelos para imprimir e vender os
+                itens físicos em marketplaces e na sua região.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Vale a pena pagar por isso se há modelos grátis?</summary>
+              <p>
+                Sim! Enquanto modelos grátis podem ser de qualidade duvidosa, incompletos ou incompatíveis, nosso pack
+                oferece arquivos testados, organizados e prontos para uso, economizando seu tempo e dinheiro.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>Funciona pra iniciante em impressão 3D?</summary>
+              <p>
+                Sim! O pack é perfeito para iniciantes, pois oferece modelos prontos para imprimir, sem necessidade de
+                conhecimento técnico avançado.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- GARANTIA -->
+      <section class="section section--light">
+        <div class="container section__container section__container--center">
+          <div class="guarantee-badge">
+            <img src="https://i.ibb.co/QFW1kybk/MPSTL-Garntia.webp" alt="100% Dinheiro de Volta - 14 Dias Garantido" style="max-width: 30%; height: auto;" />
+          </div>
+          <h2 class="section__title">GARANTIA INCONDICIONAL DE 14 DIAS</h2>
+          <p class="section__subtitle">
+            Nós confiamos tanto na qualidade do Ultra Pack STL 2026 que oferecemos uma garantia total de 14 dias. Se, por
+            qualquer motivo, você não ficar satisfeito com o material, basta solicitar o reembolso dentro desse prazo
+            e devolvemos 100% do seu dinheiro, sem burocracia e sem perguntas.
+          </p>
+          <button class="btn-primary btn-primary--full" id="btn-comprar-garantia">
+            <strong>COMPRAR COM GARANTIA</strong>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__brand">
+            <h3 class="footer__title">Ultra Pack STL 2026</h3>
+            <p class="footer__description">
+              O maior e mais completo pacote de arquivos STL para impressão 3D do Brasil.
+            </p>
+          </div>
+          <div class="footer__contact">
+            <h4>Informações de Contato:</h4>
+            <p>Email para suporte: <a href="mailto:sac@flitma.com">sac@flitma.com</a></p>
+          </div>
+          <div class="footer__links">
+            <a href="#termos">Termos de Uso</a>
+            <span>|</span>
+            <a href="#privacidade">Política de Privacidade</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>Ultra Pack STL 2026 © <span id="ano-atual"></span> — Todos os direitos reservados.</p>
+          <p class="footer__disclaimer">
+            Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a
+            responsabilidade não é deles e sim do nosso site.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal de Upgrade -->
+    <div class="upgrade-modal" id="upgrade-modal">
+      <div class="upgrade-modal__overlay"></div>
+      <div class="upgrade-modal__content">
+        <div class="upgrade-modal__header">
+          <h2>ESPERE! OFERTA EXCLUSIVA!</h2>
+        </div>
+        <div class="upgrade-modal__body">
+          <p class="upgrade-modal__subtitle">UPGRADE PARA O PREMIUM COM</p>
+          <div class="upgrade-modal__badge">DESCONTO EXTRA</div>
+          <div class="upgrade-modal__pricing">
+            <span class="upgrade-modal__old-price">De R$34,90</span>
+            <p class="upgrade-modal__label">Por apenas</p>
+            <p class="upgrade-modal__new-price">R$24,90</p>
+            <p class="upgrade-modal__savings">Economize R$10,00 agora!</p>
+          </div>
+          <ul class="upgrade-modal__benefits">
+            <li>
+              <span class="upgrade-modal__check">✓</span>
+              Acesso a todos os 6 Bônus
+            </li>
+            <li>
+              <span class="upgrade-modal__check">✓</span>
+              Bônus exclusivo de ano novo
+            </li>
+            <li>
+              <span class="upgrade-modal__check">✓</span>
+              Suporte prioritário
+            </li>
+          </ul>
+          <a href="http://pagamento.ultrapack3d.com//?checkout=mega-biblioteca-premium-100k-3d-fvqs" class="btn-primary btn-primary--full upgrade-modal__cta" id="btn-upgrade-yes">
+            <strong>SIM, QUERO O DESCONTO!</strong>
+          </a>
+          <a href="http://pagamento.ultrapack3d.com//?checkout=mega-biblioteca-premium-100k-3d-fvqs" class="btn-primary btn-primary--full upgrade-modal__cta" style="margin-top: 10px;">Comprar por R$24,90</a>
+          <a href="https://www.ggcheckout.com/checkout/v5/gx1Lkf8Iorj6dCzd2eXY" class="upgrade-modal__skip" id="btn-upgrade-no">
+            Não, obrigado. Quero apenas o pacote básico.
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS principal do projeto -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
+
