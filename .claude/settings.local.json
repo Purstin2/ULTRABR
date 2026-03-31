@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -rn \"telefone\\\\|phone\\\\|validPhone\\\\|validarTel\\\\|mask\" C:/Users/Vibox/ULTRABR/ --include=*.js --include=*.html)"
+    ]
+  }
+}
