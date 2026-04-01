@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/pteu", "destination": "/pteu/index.html" },
+    { "source": "/pteu/(.*)", "destination": "/pteu/$1" }
+  ]
+}
