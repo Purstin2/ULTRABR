@@ -106,6 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Pula o botão "NÃO" do modal pois ele precisa de lógica especial (fechar modal)
 			if (link.id === 'btn-upgrade-no') return;
 
+			// Pula o botão Básico — ele abre o modal de upgrade, não redireciona direto
+			if (link.id === 'btn-comprar-basico') return;
+
 			// Adiciona evento de clique
 			link.dataset.utmUpdated = "true";
 			link.addEventListener("click", (e) => {
