@@ -976,6 +976,22 @@ body::before {
   line-height: 1.4;
 }
 
+.pricing-card .btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.pricing-card .btn-primary:hover,
+.pricing-card .btn-primary:focus,
+.pricing-card .btn-primary:active,
+.pricing-card .btn-primary:visited,
+.pricing-card .btn-primary strong {
+  text-decoration: none;
+}
+
 /* BADGE MAIS VENDIDO */
 .badge {
   padding: 0.45rem 1rem;
