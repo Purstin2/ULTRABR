@@ -102,8 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Evita processar o mesmo link duas vezes
       if (link.dataset.utmUpdated) return;
 
-      // Pula o botão "NÃO" do modal pois ele precisa de lógica especial (fechar modal)
-      if (link.id === 'btn-upgrade-no') return;
 
       // Pula o botão Básico — ele abre o modal de upgrade, não redireciona direto
       if (link.id === 'btn-comprar-basico') return;
@@ -157,19 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Botão "NÃO" fecha o modal e aguarda antes de redirecionar
-  const btnUpgradeNo = document.getElementById("btn-upgrade-no");
-  if (btnUpgradeNo && upgradeModal) {
-    btnUpgradeNo.addEventListener("click", (e) => {
-      e.preventDefault(); // Previne navegação imediata
-      upgradeModal.classList.remove("active");
-      // Aguarda o modal fechar antes de redirecionar
-      setTimeout(() => {
-        const url = btnUpgradeNo.getAttribute("href");
-        if (url) redirectWithUtm(url);
-      }, 200);
-    });
-  }
+  // Botão "NÃO" redireciona direto para o checkout básico (9,90)
+  // Tratado automaticamente por updateAllCheckoutLinks()
 
   // Botão "SIM" é processado automaticamente por updateAllCheckoutLinks()
   // Não precisa de listener específico
