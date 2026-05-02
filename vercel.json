@@ -1,6 +1,10 @@
 {
   "rewrites": [
     { "source": "/pteu", "destination": "/pteu/index.html" },
-    { "source": "/pteu/(.*)", "destination": "/pteu/$1" }
+    { "source": "/pteu/(.*)", "destination": "/pteu/$1" },
+    { "source": "/BACKREDIRECT", "destination": "/BACKREDIRECT/index.html" },
+    { "source": "/BACKREDIRECT/(.*)", "destination": "/BACKREDIRECT/$1" },
+    { "source": "/copa", "destination": "/copa/index.html" },
+    { "source": "/copa/(.*)", "destination": "/copa/$1" }
   ]
 }
