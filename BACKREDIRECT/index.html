@@ -99,19 +99,97 @@
       line-height: 1.55;
     }
 
-    /* ── BLOCO DECISÃO (preço + botão juntos) ── */
-    .decision-block {
-      background: #0d0d0d;
-      border: 1px solid #252525;
-      border-radius: 14px;
-      padding: 22px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
+    /* ── PROVA VISUAL (fundo escuro destaque) ── */
+    .proof {
+      background: #0a0a0a;
+      border-radius: 12px;
+      padding: 14px;
     }
 
-    .price-area { text-align: center; width: 100%; }
+    .proof__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 380px) {
+      .proof__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .proof-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+    }
+
+    .proof-card__img {
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Card dos 3 pontinhos */
+    .proof-card--more {
+      background: #111;
+      border: 1px dashed #2a2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 2/3;
+    }
+
+    .proof-card--more span {
+      font-size: 1.6rem;
+      letter-spacing: 4px;
+      color: #333;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /* ── DIVISOR ── */
+    .divider {
+      height: 1px;
+      background: #1e1e1e;
+    }
+
+    /* ── BENEFÍCIOS ── */
+    .benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.83rem;
+      color: #c8c8c8;
+      line-height: 1.45;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 19px;
+      height: 19px;
+      min-width: 19px;
+      margin-top: 2px;
+      background: #182818;
+      border: 1px solid #2a4a2a;
+      color: #4caf50;
+      border-radius: 50%;
+      font-size: 0.6rem;
+      font-weight: 900;
+    }
+
+    /* ── ÁREA DO PREÇO (sem caixa) ── */
+    .price-area {
+      text-align: center;
+    }
 
     .price-area__badge {
       display: inline-block;
@@ -168,7 +246,14 @@
       font-weight: 500;
     }
 
-    /* ── BOTÃO ── */
+    /* ── CTA WRAP ── */
+    .cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
     .btn-cta {
       display: block;
       width: 100%;
@@ -192,7 +277,7 @@
 
     .btn-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(240,160,0,0.42), 0 0 0 1px rgba(255,200,0,0.18);
+      box-shadow: 0 8px 32px rgba(240,160,0,0.42);
     }
 
     .btn-cta:active { transform: translateY(0); }
@@ -205,108 +290,6 @@
       margin-top: 4px;
       letter-spacing: 1px;
       text-transform: uppercase;
-    }
-
-    /* ── DIVISOR ── */
-    .divider {
-      height: 1px;
-      background: #1e1e1e;
-    }
-
-    /* ── PROVA VISUAL ── */
-    .proof { display: flex; flex-direction: column; gap: 10px; }
-
-    .proof__heading { text-align: center; }
-
-    .proof__title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #d0d0d0;
-      line-height: 1.35;
-      margin-bottom: 3px;
-    }
-
-    .proof__sub {
-      font-size: 0.7rem;
-      color: #555;
-      line-height: 1.45;
-    }
-
-    .proof__label {
-      font-size: 0.64rem;
-      color: #484848;
-      text-align: center;
-      letter-spacing: 0.3px;
-    }
-
-    /* Desktop: grid 3×2 */
-    .proof__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    /* Mobile: 2 cols fixo */
-    @media (max-width: 420px) {
-      .proof__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .proof-card {
-      background: #0d0d0d;
-      border: 1px solid #1e1e1e;
-      border-radius: 9px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-    }
-
-    .proof-card__img {
-      width: 100%;
-      aspect-ratio: 2/3;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ── BENEFÍCIOS ── */
-    .benefits {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .benefits li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.83rem;
-      color: #c8c8c8;
-      line-height: 1.45;
-    }
-
-    .check {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 19px;
-      height: 19px;
-      min-width: 19px;
-      margin-top: 2px;
-      background: #182818;
-      border: 1px solid #2a4a2a;
-      color: #4caf50;
-      border-radius: 50%;
-      font-size: 0.6rem;
-      font-weight: 900;
-    }
-
-    /* ── CTA WRAP ── */
-    .cta-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
     }
 
     .btn-skip {
@@ -378,30 +361,8 @@
         Ao sair, o valor volta ao normal.
       </p>
 
-      <!-- 4. BLOCO DECISÃO: preço + botão -->
-      <div class="decision-block">
-        <div class="price-area">
-          <span class="price-area__badge">Condição exclusiva de saída</span>
-          <p class="price-area__from"><del>De R$49,90</del></p>
-          <p class="price-area__label">por apenas</p>
-          <div class="price-area__value"><sup>R$</sup>39<sub>,90</sub></div>
-          <p class="price-area__note">Menor valor disponível nesta oferta</p>
-        </div>
-        <a href="https://pay.kirvano.com/789a90a5-6d5f-4a9f-b8ec-6bac4dbaca5b" class="btn-cta" id="btn-aceitar">
-          SIM, QUERO MEUS 100.000 STL POR R$39,90
-          <span class="btn-cta__sub">Acesso imediato &nbsp;•&nbsp; Pagamento 100% seguro</span>
-        </a>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- 5. PROVA VISUAL -->
+      <!-- 4. PROVA VISUAL (fundo preto destaca as imagens) -->
       <div class="proof">
-        <div class="proof__heading">
-          <p class="proof__title">Você não recebe apenas alguns arquivos.</p>
-          <p class="proof__sub">Você libera uma biblioteca completa com várias categorias STL.</p>
-        </div>
-        <p class="proof__label">Algumas categorias inclusas no seu acesso:</p>
         <div class="proof__grid">
           <div class="proof-card">
             <img class="proof-card__img" src="https://aws-assets.kiwify.com.br/cdn-cgi/image/w=400,h=600,f=avif,q=85,fit=cover/BqMw5kzHapkV6bz/course_thumbnails_29b567c2-17ba-4a51-ae02-97ca788aec3a_f8a4d43540e145cc9f7a0f1dd122a901.png" alt="Categoria STL" loading="lazy" />
@@ -421,12 +382,16 @@
           <div class="proof-card">
             <img class="proof-card__img" src="https://aws-assets.kiwify.com.br/cdn-cgi/image/w=400,h=600,f=avif,q=85,fit=cover/BqMw5kzHapkV6bz/course_thumbnails_072c1d45-4fc2-40fc-b86f-017fd6a3798f_74951b66a10c48bc89c11088e537132c.png" alt="Categoria STL" loading="lazy" />
           </div>
+          <!-- 3 pontinhos indicando que tem mais -->
+          <div class="proof-card proof-card--more">
+            <span>···</span>
+          </div>
         </div>
       </div>
 
       <div class="divider"></div>
 
-      <!-- 6. BENEFÍCIOS -->
+      <!-- 5. BENEFÍCIOS -->
       <ul class="benefits">
         <li><span class="check">✓</span>+100.000 arquivos STL prontos para imprimir</li>
         <li><span class="check">✓</span>Acesso vitalício: pague uma vez e use para sempre</li>
@@ -435,9 +400,18 @@
         <li><span class="check">✓</span>Liberação imediata após o pagamento</li>
       </ul>
 
-      <!-- 7. SEGUNDO BOTÃO + SKIP -->
+      <!-- 6. PREÇO (sem caixa, após os benefícios) -->
+      <div class="price-area">
+        <span class="price-area__badge">Condição exclusiva de saída</span>
+        <p class="price-area__from"><del>De R$54,90</del></p>
+        <p class="price-area__label">por apenas</p>
+        <div class="price-area__value"><sup>R$</sup>39<sub>,90</sub></div>
+        <p class="price-area__note">Menor valor disponível nesta oferta</p>
+      </div>
+
+      <!-- 7. BOTÃO ÚNICO + SKIP -->
       <div class="cta-wrap">
-        <a href="https://pay.kirvano.com/789a90a5-6d5f-4a9f-b8ec-6bac4dbaca5b" class="btn-cta" id="btn-aceitar-2">
+        <a href="https://pay.kirvano.com/789a90a5-6d5f-4a9f-b8ec-6bac4dbaca5b" class="btn-cta" id="btn-aceitar">
           SIM, QUERO GARANTIR POR R$39,90
           <span class="btn-cta__sub">Acesso imediato &nbsp;•&nbsp; Pagamento 100% seguro</span>
         </a>
@@ -476,13 +450,11 @@
     (function () {
       const params = new URLSearchParams(window.location.search);
       if (!params.toString()) return;
-      ['btn-aceitar', 'btn-aceitar-2'].forEach(function (id) {
-        const btn = document.getElementById(id);
-        if (!btn) return;
-        const url = new URL(btn.href);
-        params.forEach((v, k) => url.searchParams.set(k, v));
-        btn.href = url.toString();
-      });
+      const btn = document.getElementById('btn-aceitar');
+      if (!btn) return;
+      const url = new URL(btn.href);
+      params.forEach((v, k) => url.searchParams.set(k, v));
+      btn.href = url.toString();
     })();
 
     // Recusar
